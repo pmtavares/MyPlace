@@ -18,4 +18,9 @@ export class ArticleService {
   {
     return this.http.get<Article[]>(this.baseUrl+"articles");
   }
+  getArticlesFiltered(id: number) : Observable<Article[]>
+  {
+    return this.http.get<Article[]>(this.baseUrl+"articles/category/"+id);
+  }
+
 }

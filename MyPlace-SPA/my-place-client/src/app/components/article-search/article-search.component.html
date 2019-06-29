@@ -3,18 +3,21 @@
   <div class="col-md-6">
       <div class="form-group">
           <label for="category">Select Category</label>
-          <select class="form-control" id="category">
-
+          <select class="form-control" id="category" name="category"
+              (change)="onCategoryChange()" [(ngModel)]="category">
+            <option value="null"></option>
+            <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
           </select>
       </div>
       <div class="form-group">
           <label for="article">Select articles</label>
           <select class="form-control" id="article">
             <option value=""></option>
-            <option *ngFor="let article of articles" value="{{article.id}}"> {{article.title}}</option>
+            <option *ngFor="let article of articlesShown" value="{{article.id}}"> {{article.title}}</option>
           </select>
       </div>
 
   </div>
+
 
 </form>
