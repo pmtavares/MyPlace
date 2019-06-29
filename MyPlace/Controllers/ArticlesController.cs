@@ -33,5 +33,13 @@ namespace MyPlace.Controllers
 
             return _mapper.Map<List<ArticleResource>>(articles);
         }
+
+        [HttpGet("category/{id}")]
+        public async Task<IEnumerable<ArticleResource>> GetArticlesByCategory(int id)
+        {
+            var articles = await _context.Articles.Where(a=>a.Category.Id == id).ToListAsync();
+
+            return _mapper.Map<List<ArticleResource>>(articles);
+        }
     }
 }

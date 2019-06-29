@@ -1,6 +1,6 @@
-﻿using MyPlace.models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,10 +31,12 @@ namespace MyPlace.resources
         public CategoryResource Category { get; set; }
 
         public int CategoryId { get; set; }
+        public ICollection<CommentResource> Comments { get; set; }
 
         public ArticleResource()
         {
             this.DateAdded = DateTime.Now;
+            this.Comments = new Collection<CommentResource>();
         }
     }
 }
